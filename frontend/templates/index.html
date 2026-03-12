@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 720px; }
+      form, ul { margin-top: 1rem; }
+      li { display: flex; gap: 0.5rem; align-items: center; padding: 0.4rem 0; }
+      .done { text-decoration: line-through; color: #666; }
+      button { cursor: pointer; }
+      input[type="text"] { width: 220px; }
+    </style>
+  </head>
+  <body>
+    <h1>Task Manager</h1>
+    <p>Front-end service connected to FastAPI back-end + PostgreSQL database.</p>
+
+    <form id="task-form">
+      <input id="title" type="text" placeholder="Task title" required />
+      <input id="description" type="text" placeholder="Description" />
+      <button type="submit">Add task</button>
+    </form>
+
+    <ul id="task-list"></ul>
+
+    <script>
+      window.API_BASE_URL = "{{ api_base_url }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
